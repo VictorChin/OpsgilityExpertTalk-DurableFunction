@@ -1,0 +1,33 @@
+GET http://localhost:7071/api/activities/TimerSample
+
+###
+GET http://localhost:7071/runtime/webhooks/durabletask/instances/4d3fa71e203e47f7a3e9bbcb684011ec?taskHub=TestHubName&connection=Storage&code=ptgD9wmUBtRuYoA9xokmOx7wkfuWsQlpHoPa8zC9Z27DwMokl7p3bQ==
+
+###
+GET http://localhost:7071/api/activities/FanOut
+###
+http://localhost:7071/api/entity/victor/InitializeLoan/15000
+
+###
+http://localhost:7071/api/entity/victor/AddTransaction/700
+###
+http://localhost:7071/api/entity/victor/GetBalance
+
+
+###
+http://localhost:7071/api/entity/Bob/InitializeLoan/8000
+
+###
+http://localhost:7071/api/entity/Bob/AddTransaction/600
+###
+http://localhost:7071/api/entity/Bob/GetBalance
+
+###
+http://localhost:7071/api/entity/Bob/ListTransaction
+###
+http://localhost:7071/api/entity/victor/ListTransaction
+###
+http://localhost:7071/api/LoanBalance/victor
+
+###
+http://localhost:7071/api/LoanBalance/Bob
