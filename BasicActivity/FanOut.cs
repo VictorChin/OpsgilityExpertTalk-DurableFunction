@@ -23,7 +23,8 @@ namespace BasicActivity
             var responses = new List<Task<DurableHttpResponse>> {
                context.CallHttpAsync(HttpMethod.Get,new Uri("https://www.google.com")),
                context.CallHttpAsync(HttpMethod.Get,new Uri("https://www.amazon.com")),
-               context.CallHttpAsync(HttpMethod.Get,new Uri("https://www.msn.com"))
+               context.CallHttpAsync(HttpMethod.Get,new Uri("https://www.msn.com")),
+               context.CallHttpAsync(HttpMethod.Get,new Uri("http://localhost:7071/api/activities/TimerSample"))
             };
             await Task.WhenAll(responses.ToArray());
             foreach (var item in responses)

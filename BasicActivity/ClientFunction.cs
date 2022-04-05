@@ -20,13 +20,15 @@ namespace BasicActivity
     public static class ClientFunction
     {
         [FunctionName("ClientFunctionHttp")]
-        public static async Task<IActionResult> ClientFunctionHttp(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "activities/{activity}")] HttpRequest req,
+        public static async Task<HttpResponseMessage> ClientFunctionHttp(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "activities/{activity}")] HttpRequestMessage req,
             [DurableClient] IDurableClient starter,
             string activity,
             ILogger log)
         {
-            string instanceId = await starter.StartNewAsync(activity);
+            object eventData = await req.Content.ReadAsAsync<object>();
+
+            string instanceId = await starter.StartNewAsync(activity,eventData);
 
             return starter.CreateCheckStatusResponse(req,instanceId);
         }
