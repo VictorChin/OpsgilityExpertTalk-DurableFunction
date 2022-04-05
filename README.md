@@ -7,3 +7,19 @@
 - GetLoanBalance: [GET] http://localhost:7071/api/LoanBalance/{account}
   - use *Non-Durable* Azure Function to access stateful Entity
   
+
+
+
+# After Cloning the repo, please add local.settings.json to BasicActivity Project with following content:
+```
+{
+    "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "[StorageConnectionString]",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "containerPath": "https://mssa0404.blob.core.windows.net/images-vc",
+    "TwilioAccountSid": "[twilioAccountSid]",
+    "AuthToken": "[twilioAuthToken]"
+  }
+}
+```
